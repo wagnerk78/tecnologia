@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <title>Editar Item</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" />
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Supera Tecnologia</a></li>
+            <li><a th:href="@{/listas}">Voltar para Listas</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section>
+        <h1>Editar Item</h1>
+        <form th:action="@{/listas/{listaId}/itens/{itemId}(listaId=${lista.id}, itemId=${item.id})}" th:object="${item}" method="post">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" th:field="*{descricao}" required="required"/>
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" th:field="*{estado}" required="required"/>
+            <label for="prioridade">Prioridade:</label>
+            <input type="text" id="prioridade" th:field="*{prioridade}" required="required"/>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

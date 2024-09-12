@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width"/>
+	<title>Listas</title>
+	<link rel="stylesheet" th:href="@{/css/estilo.css}" />
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li><a th:href="@{/}">Supera Tecnologia</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<section>
+		<h1>Listar Listas</h1>
+	</section>
+	<section>
+		<table>
+			<thead>
+			<tr>
+				<th>Nome da Lista</th>
+				<th>#</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="lista : ${listas}">
+				<td th:text="${lista.nome}"></td>
+				<td>
+					<!-- Botão para ver os itens da lista -->
+					<a th:href="@{/listas/{id}(id=${lista.id})}">
+						<button>Ver Itens</button>
+					</a>
+				</td>
+				<td>
+					<form th:action="@{/listas/{id}(id=${lista.id})}" th:method="delete">
+						<button>Remover</button>
+					</form>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<button><a th:href="@{/listas/novo}">Criar Nova Lista</a></button>
+	</section>
+</main>
+</body>
+</html>

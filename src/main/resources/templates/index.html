@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" -->
+<!--	xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+
+<!--<meta charset="utf-8" />-->
+<!--<meta name="viewport" content="width=device-width"/>-->
+
+<!--<title>Interlig</title>-->
+
+<!--<link rel="stylesheet" th:href="@{/css/estilo.css}" />-->
+
+<!--</head>-->
+
+<!--<body>-->
+<!--	<header>-->
+<!--		<nav>-->
+<!--			<ul>-->
+<!--				<li><a th:href="@{/}"> Supera Tecnologia </a></li>-->
+<!--			</ul>-->
+<!--		</nav>-->
+<!--	</header>-->
+<!--		-->
+<!--	<main>-->
+<!--		<section>-->
+<!--			<h1>Seja bem vindo(a)! O que deseja fazer hoje?</h1>-->
+<!--		</section>-->
+<!--		<section>-->
+<!--			<button><a th:href="@{/listas}"> Ver minhas listas </a></button>-->
+<!--		</section>-->
+<!--		<section>-->
+<!--			<button><a th:href="@{/listas/novo}"> Criar nova lista </a></button>-->
+<!--		</section>-->
+<!--	</main>-->
+<!--</body>-->
+
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width"/>
+	<title>Interlig</title>
+	<link rel="stylesheet" th:href="@{/css/estilo.css}" />
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li><a th:href="@{/}"> Supera Tecnologia </a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<section>
+		<h1>Seja bem vindo(a)! O que deseja fazer hoje?</h1>
+	</section>
+	<section>
+		<button><a th:href="@{/listas}"> Ver minhas listas </a></button>
+	</section>
+	<section>
+		<form th:action="@{/listas}" method="post">
+			<input type="text" name="nome" placeholder="Nome da nova lista" required />
+			<button type="submit">Criar nova lista</button>
+		</form>
+	</section>
+</main>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <title>Itens da Lista</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" />
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Supera Tecnologia</a></li>
+            <li><a th:href="@{/listas}">Voltar para Listas</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section>
+        <h1>Itens da Lista: <span th:text="${lista.nome}"></span></h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Estado</th>
+                <th>Prioridade</th>
+                <th>#</th>
+                <th>#</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${itens}">
+                <td th:text="${item.descricao}"></td>
+                <td th:text="${item.estado}"></td>
+                <td th:text="${item.prioridade}"></td>
+                <td>
+                    <a th:href="@{/listas/{listaId}/itens/{itemId}/editar(listaId=${lista.id}, itemId=${item.id})}">Editar</a>
+                </td>
+                <td>
+                    <form th:action="@{/listas/{listaId}/itens/{itemId}/remover(listaId=${lista.id}, itemId=${item.id})}" method="post">
+                        <button type="submit">Remover</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </section>
+    <section>
+        <h2>Adicionar Novo Item</h2>
+        <form th:action="@{/listas/{id}/itens(id=${lista.id})}" th:object="${novoItem}" method="post">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" th:field="*{descricao}" required="required"/>
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" th:field="*{estado}" required="required"/>
+            <label for="prioridade">Prioridade:</label>
+            <input type="text" id="prioridade" th:field="*{prioridade}" required="required"/>
+            <button type="submit">Adicionar Item</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

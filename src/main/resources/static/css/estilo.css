@@ -58,7 +58,7 @@ main section form div {
 }
 
 main section form div label {
-	display: block;	
+	display: block;
 }
 
 main section form div input {
@@ -69,7 +69,7 @@ main section form div button {
 	border: none;
 	padding: 10px 15px;
 	background-color: #80aebd;
-	color: #fff;	
+	color: #fff;
 }
 
 main section form div button:hover {
@@ -83,8 +83,8 @@ main section table {
 
 main section table, main section table th, main section table td {
 	border: 1px solid #bdc3c7;
-	padding: 10px 15px; 
-	
+	padding: 10px 15px;
+
 }
 
 main section table tbody tr td a {
@@ -96,7 +96,7 @@ main section table tbody tr td a:hover {
 	text-decoration: underline;
 	color: #16a085;
 }
-	
+
 main section table tbody tr td form button {
 	border: none;
 	padding: 10px 15px;
@@ -106,5 +106,79 @@ main section table tbody tr td form button {
 
 main section table tbody tr td form button:hover {
 	background-color: #e74c3c;
-	cursor: pointer;		
+	cursor: pointer;
 }
+
+.error-message {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: 5px;
+    margin-left: 60px;
+}
+
+input:invalid + .error-message {
+    display: block;
+}
+
+.botoes {
+    display: flex;
+}
+
+.botoes1 {
+    margin: 5px;
+    text-align: center;
+}
+
+.botoes2 {
+    margin: 5px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.botao1 {
+    padding: 10px;
+    background: #2980b9;
+    width: 150px;
+    height: 75px;
+    border: none;
+    margin-left: 50px;
+    display: inline-block;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.botao1 a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    height: 100%;
+    line-height: 75px;
+}
+
+.botao1:hover {
+    background-color: #1A237E;
+    cursor: pointer;
+}
+
+.botao1 a:hover {
+    color: white;
+}
+
+.direito {
+    display: flex;
+    flex-direction: column;
+    align-itens: center;
+ }
+
+.direito1 .direito2 {
+   width: 150px;
+   align-itens: center;
+ }
+
+ .input-index {
+    margin-top: 5px;
+    width: 150px;
+    margin-left: 50px;
+ }

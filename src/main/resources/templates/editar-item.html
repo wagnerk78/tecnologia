@@ -21,10 +21,21 @@
         <form th:action="@{/listas/{listaId}/itens/{itemId}(listaId=${lista.id}, itemId=${item.id})}" th:object="${item}" method="post">
             <label for="descricao">Descrição:</label>
             <input type="text" id="descricao" th:field="*{descricao}" required="required"/>
+
             <label for="estado">Estado:</label>
-            <input type="text" id="estado" th:field="*{estado}" required="required"/>
+            <select id="estado" th:field="*{estado}" required="required">
+                <option value="Pendente" th:selected="${item.estado == 'Pendente'}">Pendente</option>
+                <option value="Em execução" th:selected="${item.estado == 'Em execução'}">Em execução</option>
+                <option value="Feito" th:selected="${item.estado == 'Feito'}">Feito</option>
+            </select>
+
             <label for="prioridade">Prioridade:</label>
-            <input type="text" id="prioridade" th:field="*{prioridade}" required="required"/>
+            <select id="prioridade" th:field="*{prioridade}" required="required">
+                <option value="Alta" th:selected="${item.prioridade == 'Alta'}">Alta</option>
+                <option value="Média" th:selected="${item.prioridade == 'Média'}">Média</option>
+                <option value="Baixa" th:selected="${item.prioridade == 'Baixa'}">Baixa</option>
+            </select>
+
             <button type="submit">Salvar Alterações</button>
         </form>
     </section>
